@@ -48,3 +48,41 @@ A partir de esta clase se pueden crear muchos objetos diferentes, por ejemplo:
 - Charmander
 
 Todos pertenecen a la misma clase, pero cada uno posee valores distintos en sus atributos.
+
+# Objetos
+
+## ¿Qué es un objeto?
+
+Un objeto es una **instancia de una clase**. Es la representación concreta de la plantilla definida por la clase, donde cada atributo ya posee un valor específico.
+
+## ¿Qué relación tiene un objeto con una clase?
+
+La clase define cómo serán los objetos, mientras que el objeto es la materialización de esa definición.
+
+Una misma clase puede utilizarse para crear múltiples objetos con diferentes valores en sus atributos.
+
+## Diferencia entre una clase y un objeto
+
+La clase `Pokemon` únicamente define la estructura de un Pokémon, indicando que tendrá atributos como nombre, tipo y nivel.
+
+Un objeto, por ejemplo `pikachu`, representa un Pokémon específico cuyos atributos ya tienen valores asignados.
+
+Ejemplo:
+
+Clase:
+
+- `Pokemon`
+
+Objetos creados a partir de ella:
+
+- `pikachu`
+- `charizard`
+- `gengar`
+
+Todos pertenecen a la misma clase, pero cada uno almacena información diferente.
+
+---
+
+### Relación con el proyecto
+
+En este proyecto, los objetos creados se utilizan posteriormente dentro de otras clases, como `Main` o `Entrenador`, para construir el funcionamiento del sistema.

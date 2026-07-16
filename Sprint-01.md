@@ -2,7 +2,7 @@
 
 ## ¿Qué construí?
 
-Construí las bases del proyecto creando las primeras clases del dominio (`Pokemon` y `Entrenador`) y aprendiendo cómo crear objetos a partir de estas clases.
+Construí las bases del proyecto creando las primeras clases del dominio (`Pokemon` y `Entrenador`) y aprendi cómo crear objetos a partir de estas clases.
 
 ---
 

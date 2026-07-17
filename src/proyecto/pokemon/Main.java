@@ -5,23 +5,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        GestorEntrenadores gestor = new GestorEntrenadores();
+        String decision = "s";
 
-        Pokemon mudkip = new Pokemon("agua", 5, "Mudkip");
-        Pokemon charmander = new Pokemon("fuego", 5, "Charmander");
-        Pokemon chikorita = new Pokemon("planta", 5, "Chikorita");
-        Pokemon lucario = new Pokemon("lucha", 5, "Lucario");
+        while(decision.equals("s")){
+            System.out.println("Ingrese nombre del Entrenador = ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese region del entrenador = ");
+            String region = scanner.nextLine();
 
-        Entrenador pipe = new Entrenador("Pipe", "Kanto");
-        Entrenador rafa = new Entrenador("Rafa", "Alola");
+            gestor.registrarEntrenador(nombre, region);
 
-        pipe.agregarPokemon(mudkip);
-        pipe.agregarPokemon(charmander);
+            System.out.println("Desea registrar otro entrenador(s/n) = ");
+            decision = scanner.nextLine();
 
-        rafa.agregarPokemon(chikorita);
-        rafa.agregarPokemon(lucario);
+        }
 
-        System.out.println("\n" + pipe.toString());
-        System.out.println("\n" + rafa.toString());
+
+        System.out.println(gestor);
+
 
 
 

@@ -26,15 +26,13 @@ public class Entrenador {
         return this.region;
     }
 
-    public void setEquipo(ArrayList<Pokemon> equipo) {
-        this.equipo = equipo;
-    }
-
     public void agregarPokemon(Pokemon pokemon){
         this.equipo.add(pokemon);
     }
+
+
     @Override
     public String toString(){
-        return "Nombre del entrenador: "+ nombre+ "\nEquipo del entrenador: "+ equipo+"\nRegion del entrenador: "+region;
+        return "Nombre del entrenador: "+ nombre+ "\nRegion del entrenador: "+region+"\nEquipo del entrenador: "+ equipo;
     }
 }

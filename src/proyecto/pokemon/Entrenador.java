@@ -30,7 +30,6 @@ public class Entrenador {
         this.equipo.add(pokemon);
     }
 
-
     @Override
     public String toString(){
         return "Nombre del entrenador: "+ nombre+ "\nRegion del entrenador: "+region+"\nEquipo del entrenador: "+ equipo;

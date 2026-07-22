@@ -19,6 +19,15 @@ public class GestorEntrenadores {
         addEntrenador(entrenador);
     }
 
+    public Entrenador buscarEntrenador(String nombreEntrenador){
+        for(Entrenador entrenador : entrenadores){
+            if(entrenador.getNombre().equalsIgnoreCase(nombreEntrenador)) {
+                return entrenador;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString(){
         return "Informacion de los entrenadores: " + entrenadores;

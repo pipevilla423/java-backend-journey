@@ -6,10 +6,13 @@ public class Pokemon {
     private int nivel;
     private String nombre;
 
-    public Pokemon(String tipo, int nivel, String nombre){
+    public Pokemon(String nombre, String tipo,  int nivel){
         this.tipo = tipo;
-        this.nivel = nivel;
         this.nombre = nombre;
+        this.nivel = nivel;
+    }
+    public String getNombre(){
+        return this.nombre;
     }
 
     public String getTipo(){
@@ -20,12 +23,8 @@ public class Pokemon {
         return this.nivel;
     }
 
-    public String getNombre(){
-        return this.nombre;
-    }
-
     @Override
     public String toString() {
-        return "\n" + nombre + "\nNivel = "+ nivel+"\nTipo = "+tipo;
+        return  "\n"+nombre + ", Tipo = "+tipo+", Nivel = "+ nivel;
     }
 }

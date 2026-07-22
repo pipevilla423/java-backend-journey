@@ -10,13 +10,13 @@ public class GestorEntrenadores {
         this.entrenadores = new ArrayList<>();
     }
 
-    public void addEntrenador(Entrenador entrenador){
+    public void agregarEntrenador(Entrenador entrenador){
         this.entrenadores.add(entrenador);
     }
 
     public void registrarEntrenador(String nombre, String region){
         Entrenador entrenador = new Entrenador(nombre, region);
-        addEntrenador(entrenador);
+        agregarEntrenador(entrenador);
     }
 
     public Entrenador buscarEntrenador(String nombreEntrenador){

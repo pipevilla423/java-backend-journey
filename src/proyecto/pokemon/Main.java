@@ -23,7 +23,7 @@ public class Main {
             String nombre = scanner.nextLine();
             Entrenador entrenador = gestor.buscarEntrenador(nombre);
             if (entrenador == null) {
-                System.out.println("El entrenador no esta resgistrado");
+                System.out.println("El entrenador no esta registrado");
             } else {
                 String decision2 = "s";
                 while (decision2.equalsIgnoreCase("s")) {

@@ -26,17 +26,15 @@ public class Entrenador {
         return this.region;
     }
 
-    public boolean agregarPokemon(Pokemon pokemon){
+    public EstadoAgregarPokemon agregarPokemon(Pokemon pokemon){
         if(equipo.size()==6){
-            System.out.println("Ya hay 6 pokemones en el equipo");
-            return false;
+            return EstadoAgregarPokemon.EQUIPO_LLENO;
         }
         if(pokemonDuplicado(pokemon)){
-            System.out.println("Este pokemon ya esta en el equipo");
-            return false;
+            return EstadoAgregarPokemon.POKEMON_DUPLICADO;
         }
         this.equipo.add(pokemon);
-        return true;
+        return EstadoAgregarPokemon.POKEMON_AGREGADO;
     }
 
     private boolean pokemonDuplicado(Pokemon pokemon){

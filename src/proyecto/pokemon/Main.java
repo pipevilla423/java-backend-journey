@@ -35,12 +35,11 @@ public class Main {
                     int nivel = scanner.nextInt();
                     scanner.nextLine();
                     Pokemon pokemon = new Pokemon(nombrePokemon, tipo, nivel);
-                    boolean posible = entrenador.agregarPokemon(pokemon);
-                    if(!posible){
-                        System.out.println("No fue posible ingresar el pokemon");
-                    }
-                    else{
-                        System.out.println("Pokemon ingresado correctamente");
+                    EstadoAgregarPokemon estado = entrenador.agregarPokemon(pokemon);
+                    switch (estado){
+                        case EQUIPO_LLENO -> System.out.println("EL equipo esta lleno (maximo 6 pokemon)");
+                        case POKEMON_DUPLICADO -> System.out.println("Este pokemon ya se encuentra en el equipo");
+                        case POKEMON_AGREGADO -> System.out.println("Pokemon agregado exitosamente");
                     }
                     System.out.println("Desea ingresar otro pokemon? (s/n): ");
                     decision2 = scanner.nextLine();

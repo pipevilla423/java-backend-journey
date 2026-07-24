@@ -6,6 +6,7 @@ public class GestorEntrenadores {
 
     private ArrayList<Entrenador> entrenadores;
 
+
     public GestorEntrenadores(){
         this.entrenadores = new ArrayList<>();
     }

@@ -35,7 +35,13 @@ public class Main {
                     int nivel = scanner.nextInt();
                     scanner.nextLine();
                     Pokemon pokemon = new Pokemon(nombrePokemon, tipo, nivel);
-                    entrenador.agregarPokemon(pokemon);
+                    boolean posible = entrenador.agregarPokemon(pokemon);
+                    if(!posible){
+                        System.out.println("No fue posible ingresar el pokemon");
+                    }
+                    else{
+                        System.out.println("Pokemon ingresado correctamente");
+                    }
                     System.out.println("Desea ingresar otro pokemon? (s/n): ");
                     decision2 = scanner.nextLine();
                 }

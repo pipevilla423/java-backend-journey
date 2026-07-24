@@ -26,8 +26,26 @@ public class Entrenador {
         return this.region;
     }
 
-    public void agregarPokemon(Pokemon pokemon){
+    public boolean agregarPokemon(Pokemon pokemon){
+        if(equipo.size()==6){
+            System.out.println("Ya hay 6 pokemones en el equipo");
+            return false;
+        }
+        if(pokemonDuplicado(pokemon)){
+            System.out.println("Este pokemon ya esta en el equipo");
+            return false;
+        }
         this.equipo.add(pokemon);
+        return true;
+    }
+
+    private boolean pokemonDuplicado(Pokemon pokemon){
+        for(Pokemon p: equipo){
+            if(pokemon.getNombre().equalsIgnoreCase(p.getNombre())){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

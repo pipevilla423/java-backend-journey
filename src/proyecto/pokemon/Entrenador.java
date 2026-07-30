@@ -27,7 +27,7 @@ public class Entrenador {
     }
 
     public EstadoAgregarPokemon agregarPokemon(Pokemon pokemon){
-        if(equipo.size()==6){
+        if(equipo.size() == 6){
             return EstadoAgregarPokemon.EQUIPO_LLENO;
         }
         if(pokemonDuplicado(pokemon)){

@@ -11,6 +11,10 @@ public class GestorEntrenadores {
         this.entrenadores = new ArrayList<>();
     }
 
+    public ArrayList<Entrenador> getEntrenadores() {
+        return entrenadores;
+    }
+
     public void agregarEntrenador(Entrenador entrenador){
         this.entrenadores.add(entrenador);
     }

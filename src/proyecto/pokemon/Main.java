@@ -48,8 +48,8 @@ public class Main {
                     int nivel = scanner.nextInt();
                     scanner.nextLine();
                     Pokemon pokemon = new Pokemon(nombrePokemon, tipo, nivel);
-                    EstadoAgregarPokemon estado = entrenador.agregarPokemon(pokemon);
-                    switch (estado) {
+                    EstadoAgregarPokemon estadoAgregarPokemon = entrenador.agregarPokemon(pokemon);
+                    switch (estadoAgregarPokemon) {
                         case EQUIPO_LLENO -> System.out.println("EL equipo esta lleno (maximo 6 pokemon)");
                         case POKEMON_DUPLICADO -> System.out.println("Este pokemon ya se encuentra en el equipo");
                         case POKEMON_AGREGADO -> System.out.println("Pokemon agregado exitosamente");
@@ -60,6 +60,28 @@ public class Main {
             }
             System.out.println("Desea cambiar de entrenador? (s/n): ");
             deseaAgregarPokemonAEquipo = scanner.nextLine();
+        }
+        System.out.println("Desea eliminar un pokemon? (s/n): ");
+        String deseaEliminarPokemon = scanner.nextLine();
+        while (deseaEliminarPokemon.equalsIgnoreCase("s")){
+            System.out.println("Ingrese el nombre de el entrenador a eliminar pokemon: ");
+            String nombreEntrenador = scanner.nextLine();
+            Entrenador entrenador = gestor.buscarEntrenador(nombreEntrenador);
+            if(entrenador == null){
+                System.out.println("El entrenador no esta registrado");
+            }
+            else {
+                System.out.println("Ingrese el nombre de el pokemon: ");
+                String nombrePokemon = scanner.nextLine();
+                EstadoEliminarPokemon estadoEliminarPokemon = entrenador.eliminarPokemon(nombrePokemon);
+                switch (estadoEliminarPokemon) {
+                    case POKEMON_ELIMINADO -> System.out.println("Pokemon eliminado correctamente");
+                    case POKEMON_NO_EXISTENTE -> System.out.println("Este pokemon no se encuentra en el equipo");
+                    case EQUIPO_VACIO -> System.out.println("El equipo de este entrenador esta vacio");
+                }
+                System.out.println("Desea eliminar otro pokemon? (s/n): ");
+                deseaEliminarPokemon = scanner.nextLine();
+            }
         }
 
         archivo.guardarEntrenadores(gestor.getEntrenadores());

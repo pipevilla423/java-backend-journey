@@ -1,6 +1,7 @@
 package proyecto.pokemon;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Entrenador {
 
@@ -35,6 +36,22 @@ public class Entrenador {
         }
         this.equipo.add(pokemon);
         return EstadoAgregarPokemon.POKEMON_AGREGADO;
+    }
+
+    public EstadoEliminarPokemon eliminarPokemon(String nombre){
+        if (equipo.isEmpty()){
+            return EstadoEliminarPokemon.EQUIPO_VACIO;
+        }
+        Iterator<Pokemon> iterador = equipo.iterator();
+
+        while(iterador.hasNext()){
+            Pokemon pokemon = iterador.next();
+            if(pokemon.getNombre().equalsIgnoreCase(nombre)){
+                iterador.remove();
+                return EstadoEliminarPokemon.POKEMON_ELIMINADO;
+            }
+        }
+        return EstadoEliminarPokemon.POKEMON_NO_EXISTENTE;
     }
 
     private boolean pokemonDuplicado(Pokemon pokemon){

@@ -20,6 +20,7 @@ public class Aplicacion {
         agregarEntrenador();
         agregarPokemon();
         eliminarPokemon();
+        consultarPokemonDeEntrenador();
         guardarEntrenadores();
         mostrarEstadoEntrenadores();
     }
@@ -116,6 +117,36 @@ public class Aplicacion {
             }
         }
 
+    }
+
+    private void consultarPokemonDeEntrenador(){
+        boolean deseaConsultarInformacionDePokemon = consola.pedirDecision("Desea consultar informacion de un pokemon? (s/n)");
+        while (deseaConsultarInformacionDePokemon){
+            String nombreEntrenador = consola.pedirTexto("Ingrese el nombre de el entrenador: ");
+            Entrenador entrenador = gestor.buscarEntrenador(nombreEntrenador);
+            if(entrenador != null){
+                if(entrenador.equipoVacio()){
+                    consola.imprimirMensaje("El equipo de el entrenador esta vacio");
+                }
+                else {
+                    consola.imprimirMensaje("---Equipo de el entrenador---");
+                    for (Pokemon pokemon : entrenador.obtenerEquipo()) {
+                        consola.imprimirMensaje("- " + pokemon.getNombre());
+                    }
+                    String nombrePokemon = consola.pedirTexto("Ingrese el nombre de el pokemon: ");
+                    Pokemon pokemon = entrenador.buscarPokemonPorNombre(nombrePokemon);
+                    if (pokemon != null) {
+                        consola.imprimirMensaje(pokemon.toString());
+                    } else {
+                        consola.imprimirMensaje("Pokemon no existente en el equipo");
+                    }
+                }
+            }
+            else {
+                consola.imprimirMensaje("Entrenador no existente");
+            }
+            deseaConsultarInformacionDePokemon = consola.pedirDecision("Desea consultar la informacion de otro pokemon? (s/n): ");
+        }
     }
 
     private void guardarEntrenadores() throws IOException{

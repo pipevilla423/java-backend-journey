@@ -10,10 +10,6 @@ public class ArchivoEntrenadores {
         this.rutaArchivo = rutaArchivo;
     }
 
-    public String getRutaArchivo() {
-        return rutaArchivo;
-    }
-
     public ArrayList<Entrenador> cargarEntrenadores() throws IOException {
         BufferedReader lector = new BufferedReader(new FileReader(rutaArchivo));
         ArrayList<Entrenador> entrenadoresCargados = new ArrayList<>();
@@ -58,7 +54,7 @@ public class ArchivoEntrenadores {
         String[] datosPokemon = textoPokemon.split(",");
         String nombrePokemon = datosPokemon[0];
         String tipoPokemon = datosPokemon[1];
-        String nivel = datosPokemon[2];
-        return new Pokemon(nombrePokemon, tipoPokemon, Integer.parseInt(nivel));
+        int nivel = Integer.parseInt(datosPokemon[2]);
+        return new Pokemon(nombrePokemon, tipoPokemon, nivel);
     }
 }

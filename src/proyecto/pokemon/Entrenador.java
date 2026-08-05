@@ -54,8 +54,26 @@ public class Entrenador {
         return EstadoEliminarPokemon.POKEMON_NO_EXISTENTE;
     }
 
+    public Pokemon buscarPokemonPorNombre(String nombrePokemon){
+        for (Pokemon pokemon: equipo){
+            if (pokemon.getNombre().equalsIgnoreCase(nombrePokemon)){
+                return pokemon;
+            }
+        }
+        return null;
+    }
+
+    public boolean equipoVacio(){
+        return equipo.isEmpty();
+    }
+
+    public ArrayList<Pokemon> obtenerEquipo(){
+        ArrayList<Pokemon> copiaEquipo = this.equipo;
+        return copiaEquipo;
+    }
+
     private boolean pokemonDuplicado(Pokemon pokemon){
-        for(Pokemon p: equipo){
+        for(Pokemon p: this.equipo){
             if(pokemon.getNombre().equalsIgnoreCase(p.getNombre())){
                 return true;
             }

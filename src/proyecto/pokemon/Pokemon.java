@@ -23,6 +23,18 @@ public class Pokemon {
         return this.nivel;
     }
 
+    public void cambiarNombre(String nuevoNombre){
+        this.nombre = nuevoNombre;
+    }
+
+    public void cambiarTipo(String nuevoTipo) {
+        this.tipo = nuevoTipo;
+    }
+
+    public void cambiarNivel(int nuevoNivel) {
+        this.nivel = nuevoNivel;
+    }
+
     @Override
     public String toString() {
         return  "\n"+nombre + ", Tipo = "+tipo+", Nivel = "+ nivel;

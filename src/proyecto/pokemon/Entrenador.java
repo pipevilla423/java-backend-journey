@@ -31,7 +31,7 @@ public class Entrenador {
         if(equipo.size() == 6){
             return EstadoAgregarPokemon.EQUIPO_LLENO;
         }
-        if(pokemonDuplicado(pokemon)){
+        if(nombrePokemonDuplicado(pokemon)){
             return EstadoAgregarPokemon.POKEMON_DUPLICADO;
         }
         this.equipo.add(pokemon);
@@ -63,16 +63,31 @@ public class Entrenador {
         return null;
     }
 
+    public EstadoEditarInformacionPokemon editarNombrePokemon(Pokemon pokemon, String nuevoNombre){
+        if(buscarPokemonPorNombre(nuevoNombre)!=null){
+            return EstadoEditarInformacionPokemon.POKEMON_DUPLICADO;
+        }
+        pokemon.cambiarNombre(nuevoNombre);
+        return EstadoEditarInformacionPokemon.NOMBRE_POKEMON_EDITADO;
+    }
+
+    public void editarTipoPokemon(Pokemon pokemon, String nuevoTipo){
+        pokemon.cambiarTipo(nuevoTipo);
+    }
+
+    public void editarNivelPokemon(Pokemon pokemon, int nuevoNivel){
+        pokemon.cambiarNivel(nuevoNivel);
+    }
+
     public boolean equipoVacio(){
         return equipo.isEmpty();
     }
 
     public ArrayList<Pokemon> obtenerEquipo(){
-        ArrayList<Pokemon> copiaEquipo = this.equipo;
-        return copiaEquipo;
+        return new ArrayList<>(equipo);
     }
 
-    private boolean pokemonDuplicado(Pokemon pokemon){
+    private boolean nombrePokemonDuplicado(Pokemon pokemon){
         for(Pokemon p: this.equipo){
             if(pokemon.getNombre().equalsIgnoreCase(p.getNombre())){
                 return true;
